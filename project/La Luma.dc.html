@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Antonio:wght@300;400;600&family=Cormorant+Garamond:ital,wght@0,500;1,400;1,500&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+html{scroll-behavior:smooth}
+body{margin:0;background:#141d1a;color:#eee8dc;font-family:Montserrat,sans-serif;-webkit-font-smoothing:antialiased}
+*{box-sizing:border-box}
+a{color:#c4a46b;text-decoration:none}
+a:hover{color:#e2c891}
+img{display:block}
+</style>
+</helmet>
+
+<header style="position:fixed;top:0;left:0;right:0;z-index:50;transition:background .4s, padding .4s;background:{{ navBg }};backdrop-filter:{{ navBlur }}">
+  <div style="max-width:1320px;margin:0 auto;padding:18px clamp(20px,4vw,48px);display:flex;align-items:center;justify-content:space-between;gap:24px">
+    <a href="#top" style="display:flex;flex-direction:column;line-height:1;color:#eee8dc">
+      <span style="font-family:Antonio,sans-serif;font-size:28px;font-weight:400;letter-spacing:.04em">LA LUMA</span>
+      <span style="font-size:9.5px;letter-spacing:.14em;margin-top:4px;color:#c4a46b">HOTEL AND RESTAURANTS</span>
+    </a>
+    <nav style="display:{{ navLinksDisplay }};align-items:center;gap:34px;font-size:12px;letter-spacing:.16em;font-weight:500">
+      <a href="#inside" style="color:#eee8dc" style-hover="color:#c4a46b">INSIDE</a>
+      <a href="#services" style="color:#eee8dc" style-hover="color:#c4a46b">SERVICES</a>
+      <a href="#asin" style="color:#eee8dc" style-hover="color:#c4a46b">LOCAL</a>
+      <a href="#visit" style="color:#eee8dc" style-hover="color:#c4a46b">VISIT</a>
+      <a href="tel:09984966388" style="color:#141d1a;background:#c4a46b;padding:12px 20px;border-radius:2px" style-hover="background:#e2c891;color:#141d1a">RESERVE</a>
+    </nav>
+    <button onClick="{{ toggleMenu }}" style="display:{{ menuBtnDisplay }};background:none;border:1px solid rgba(238,232,220,.5);color:#eee8dc;font:500 12px Montserrat,sans-serif;letter-spacing:.16em;padding:12px 16px;min-height:44px;cursor:pointer">{{ menuLabel }}</button>
+  </div>
+  <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+    <div style="background:#141d1a;padding:8px clamp(20px,4vw,48px) 28px;display:flex;flex-direction:column;gap:4px;border-top:1px solid rgba(196,164,107,.25)">
+      <a href="#inside" onClick="{{ closeMenu }}" style="color:#eee8dc;font-family:Antonio,sans-serif;font-size:32px;padding:10px 0">Inside</a>
+      <a href="#services" onClick="{{ closeMenu }}" style="color:#eee8dc;font-family:Antonio,sans-serif;font-size:32px;padding:10px 0">Services</a>
+      <a href="#asin" onClick="{{ closeMenu }}" style="color:#eee8dc;font-family:Antonio,sans-serif;font-size:32px;padding:10px 0">Local</a>
+      <a href="#visit" onClick="{{ closeMenu }}" style="color:#eee8dc;font-family:Antonio,sans-serif;font-size:32px;padding:10px 0">Visit</a>
+      <a href="tel:09984966388" style="margin-top:12px;color:#141d1a;background:#c4a46b;padding:16px 20px;text-align:center;font-size:12px;letter-spacing:.16em;font-weight:600">CALL 0998 496 6388</a>
+    </div>
+  </sc-if>
+</header>
+
+<section id="top" data-screen-label="Hero" style="position:relative;height:100svh;min-height:600px;overflow:hidden;background:#141d1a">
+  <img data-parallax="0.35" src="images/hero-facade.png" alt="La Luma arched façade and garden terrace" style="position:absolute;left:0;top:-15%;width:100%;height:130%;object-fit:cover;object-position:75% center;will-change:transform">
+  <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,29,26,.6) 0%,rgba(20,29,26,.4) 35%,rgba(20,29,26,.9) 88%)"></div>
+  <div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(20,29,26,.82) 0%,rgba(20,29,26,.5) 40%,rgba(20,29,26,0) 70%)"></div>
+  <div data-parallax="-0.12" style="position:absolute;left:0;right:0;bottom:0;will-change:transform">
+    <div style="max-width:1320px;margin:0 auto;padding:0 clamp(20px,4vw,48px) clamp(48px,9vh,96px);display:grid;gap:28px">
+      <div style="font-size:12px;letter-spacing:.22em;color:#c4a46b;font-weight:500">SORSOGON CITY · BOUTIQUE HOTEL, RESTAURANT AND EVENTS</div>
+      <h1 style="margin:0;font-family:Antonio,sans-serif;font-weight:300;font-size:clamp(48px,8.4vw,128px);line-height:.98;letter-spacing:-.005em;max-width:13ch;text-wrap:balance">Some places you visit. Some places you feel.</h1>
+      <div style="display:flex;flex-wrap:wrap;gap:14px;align-items:center">
+        <a href="#inside" style="color:#141d1a;background:#eee8dc;padding:16px 26px;font-size:12px;letter-spacing:.16em;font-weight:600" style-hover="background:#c4a46b;color:#141d1a">STEP INSIDE</a>
+        <a href="tel:09984966388" style="color:#eee8dc;border:1px solid rgba(238,232,220,.6);padding:15px 26px;font-size:12px;letter-spacing:.16em;font-weight:600" style-hover="border-color:#c4a46b;color:#c4a46b">RESERVE A TABLE</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="Intro" style="background:#eee8dc;color:#1d2a25;padding:clamp(80px,12vw,160px) clamp(20px,4vw,48px)">
+  <div style="max-width:1320px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:clamp(32px,6vw,96px);align-items:end">
+    <h2 style="margin:0;font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:500;font-size:clamp(44px,6vw,88px);line-height:1;letter-spacing:-.01em;text-wrap:balance">Designed for meaningful gatherings.</h2>
+    <div style="display:grid;gap:22px;max-width:520px">
+      <p style="margin:0;font-size:17px;line-height:1.7;text-wrap:pretty">La Luma Sorsogon City premier Boutique hotel, Restaurant and Events.</p>
+      <p style="margin:0;font-size:15px;line-height:1.7;color:#4e5853;text-wrap:pretty">Rooms for couples and families, Filipino comfort food with a La Luma twist, signature cocktails, and spaces for weddings, prenups and private celebrations.</p>
+    </div>
+  </div>
+</section>
+
+<section id="inside" data-screen-label="Image switcher" style="background:#1d2a25;padding:clamp(72px,10vw,140px) clamp(20px,4vw,48px)">
+  <div style="max-width:1320px;margin:0 auto;display:grid;gap:clamp(32px,5vw,56px)">
+    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:20px">
+      <div style="display:grid;gap:14px">
+        <div style="font-size:12px;letter-spacing:.22em;color:#c4a46b;font-weight:500">INSIDE LA LUMA</div>
+        <h2 style="margin:0;font-family:Antonio,sans-serif;font-weight:300;font-size:clamp(40px,5vw,72px);line-height:1">Corners worth lingering in</h2>
+      </div>
+      <div style="display:flex;align-items:center;gap:16px">
+        <span style="font-family:Antonio,sans-serif;font-size:20px;letter-spacing:.06em;color:#b9c2bc">{{ counter }}</span>
+        <button onClick="{{ prev }}" aria-label="Previous image" style="width:52px;height:52px;border-radius:50%;background:none;border:1px solid rgba(238,232,220,.45);color:#eee8dc;font-size:20px;cursor:pointer" style-hover="border-color:#c4a46b;color:#c4a46b">←</button>
+        <button onClick="{{ next }}" aria-label="Next image" style="width:52px;height:52px;border-radius:50%;background:none;border:1px solid rgba(238,232,220,.45);color:#eee8dc;font-size:20px;cursor:pointer" style-hover="border-color:#c4a46b;color:#c4a46b">→</button>
+      </div>
+    </div>
+    <div onMouseEnter="{{ pause }}" onMouseLeave="{{ resume }}" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:clamp(28px,4vw,64px);align-items:stretch">
+      <div style="position:relative;aspect-ratio:1/1;max-height:720px;overflow:hidden;background:#141d1a">
+        <sc-for list="{{ slides }}" as="s" hint-placeholder-count="0">
+          <img src="{{ s.src }}" alt="{{ s.title }}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:{{ s.pos }};opacity:{{ s.opacity }};transform:scale({{ s.scale }});transition:opacity .9s ease, transform 6s ease">
+        </sc-for>
+        <div style="position:absolute;left:0;right:0;bottom:0;height:3px;background:rgba(238,232,220,.15)">
+          <div style="height:100%;width:{{ progress }};background:#c4a46b;transition:width .5s ease"></div>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;justify-content:space-between;gap:32px">
+        <div style="display:grid;gap:18px;min-height:220px">
+          <div style="font-family:Antonio,sans-serif;font-size:14px;letter-spacing:.2em;color:#c4a46b">{{ active.kicker }}</div>
+          <h3 style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(36px,4vw,56px);line-height:1.02">{{ active.title }}</h3>
+          <p style="margin:0;font-size:16px;line-height:1.7;color:#cfd5d1;max-width:46ch;text-wrap:pretty">{{ active.text }}</p>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px">
+          <sc-for list="{{ slides }}" as="s" hint-placeholder-count="0">
+            <button onClick="{{ s.go }}" aria-label="{{ s.title }}" style="padding:0;border:0;background:none;cursor:pointer;display:grid;gap:8px;text-align:left">
+              <img src="{{ s.src }}" alt="" style="width:100%;aspect-ratio:1/1;object-fit:cover;object-position:{{ s.pos }};opacity:{{ s.thumbOpacity }};filter:{{ s.thumbFilter }};transition:opacity .4s, filter .4s">
+              <span style="height:2px;background:{{ s.bar }};transition:background .4s"></span>
+            </button>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="services" data-screen-label="Services" style="background:#eee8dc;color:#1d2a25;padding:clamp(72px,10vw,140px) clamp(20px,4vw,48px)">
+  <div style="max-width:1320px;margin:0 auto;display:grid;gap:clamp(40px,6vw,72px)">
+    <div style="display:grid;gap:14px">
+      <div style="font-size:12px;letter-spacing:.22em;color:#8a6d3b;font-weight:600">SERVICES</div>
+      <h2 style="margin:0;font-family:Antonio,sans-serif;font-weight:300;font-size:clamp(40px,5vw,72px);line-height:1">Stay, dine, celebrate</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:clamp(32px,4vw,56px)">
+      <div style="display:grid;gap:28px;align-content:start;border-top:1px solid #1d2a25;padding-top:24px">
+        <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:34px">Stay</div>
+        <div style="display:grid;gap:8px"><h4 style="margin:0;font-size:16px;font-weight:600">Boutique Stay / Rooms (By Reservation)</h4><p style="margin:0;font-size:14.5px;line-height:1.65;color:#4e5853">Cozy Standard &amp; Suite Rooms For Couples/Families. 24H &amp; Select Promos. Breakfast For 2 On Regular Stays. Reservation Required.</p></div>
+        <div style="display:grid;gap:8px"><h4 style="margin:0;font-size:16px;font-weight:600">Table Reservations</h4><p style="margin:0;font-size:14.5px;line-height:1.65;color:#4e5853">Secure Your Seats In Advance. ₱1,000 Restaurant Reservation DP To Confirm (Deducted From Bill). Rebookable Policy Applies.</p></div>
+      </div>
+      <div style="display:grid;gap:28px;align-content:start;border-top:1px solid #1d2a25;padding-top:24px">
+        <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:34px">Dine</div>
+        <div style="display:grid;gap:8px"><h4 style="margin:0;font-size:16px;font-weight:600">Restaurant Dining (Lunch &amp; Dinner)</h4><p style="margin:0;font-size:14.5px;line-height:1.65;color:#4e5853">Dine-In Filipino Comfort With A La Luma Twist. Perfect For Dates, Families, Barkada. Walk-Ins Welcome, Reservations Recommended.</p></div>
+        <div style="display:grid;gap:8px"><h4 style="margin:0;font-size:16px;font-weight:600">Signature Cocktails / Open House Cocktail</h4><p style="margin:0;font-size:14.5px;line-height:1.65;color:#4e5853">House Signature Cocktails + Sharing Bottles Available. Ask For Menu &amp; Pricing. Happy Hour May Apply (If Available).</p></div>
+        <div style="display:grid;gap:8px"><h4 style="margin:0;font-size:16px;font-weight:600">Valentine Fine Dining + Sarswela (Feb 14–15)</h4><p style="margin:0;font-size:14.5px;line-height:1.65;color:#4e5853">Special Event Nights: Fine Dining + Live Sarswela Experience. Limited Slots. Reservation &amp; DP Required.</p></div>
+      </div>
+      <div style="display:grid;gap:28px;align-content:start;border-top:1px solid #1d2a25;padding-top:24px">
+        <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:34px">Celebrate</div>
+        <div style="display:grid;gap:8px"><h4 style="margin:0;font-size:16px;font-weight:600">Wedding Reception Package</h4><p style="margin:0;font-size:14.5px;line-height:1.65;color:#4e5853">Wedding Venue Package Options With Event Space &amp; Add-Ons. Ideal For 100–120 Pax Max. Advance Booking &amp; DP Required.</p></div>
+        <div style="display:grid;gap:8px"><h4 style="margin:0;font-size:16px;font-weight:600">Wedding Preparation Photoshoot</h4><p style="margin:0;font-size:14.5px;line-height:1.65;color:#4e5853">2-Hour Wedding Prep Photoshoot Slot (AM Only) With Select Locations. Reservation + DP Required. Limited Availability.</p></div>
+        <div style="display:grid;gap:8px"><h4 style="margin:0;font-size:16px;font-weight:600">Prenuptial Photoshoot Package</h4><p style="margin:0;font-size:14.5px;line-height:1.65;color:#4e5853">Exclusive Prenup Shoot Access (6 Hours) With Select Areas. Limited Slots. Reservation + DP Required.</p></div>
+        <div style="display:grid;gap:8px"><h4 style="margin:0;font-size:16px;font-weight:600">Private Events / Venue Rental</h4><p style="margin:0;font-size:14.5px;line-height:1.65;color:#4e5853">Celebrate Birthdays, Anniversaries, Meetings &amp; Intimate Gatherings. Flexible Setup Options. Reservation + DP Required.</p></div>
+        <div style="display:grid;gap:8px"><h4 style="margin:0;font-size:16px;font-weight:600">Kids Art Events (Partner Programs)</h4><p style="margin:0;font-size:14.5px;line-height:1.65;color:#4e5853">Occasional Partner Events For Kids (Workshop/Competition/Exhibit). Limited Slots.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="asin" data-screen-label="Asin tibuok" style="position:relative;background:#1a1613;padding:clamp(80px,12vw,170px) clamp(20px,4vw,48px);overflow:hidden">
+  <div style="max-width:1320px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:clamp(48px,7vw,110px);align-items:center">
+    <div style="position:relative;padding:0 18% 14% 0">
+      <div style="overflow:hidden;aspect-ratio:3/4;position:relative">
+        <img data-parallax="0.12" src="images/asin-latte.png" alt="Iced latte beside a block of asin tibuok" style="position:absolute;left:0;top:-10%;width:100%;height:120%;object-fit:cover;object-position:center 70%;will-change:transform">
+      </div>
+      <div data-parallax="-0.18" style="position:absolute;right:0;bottom:0;width:46%;aspect-ratio:1/1;will-change:transform;box-shadow:0 30px 60px rgba(0,0,0,.45)">
+        <img src="images/asin-pot.png" alt="Clay pot of asin tibuok" style="width:100%;height:100%;object-fit:cover">
+      </div>
+    </div>
+    <div style="display:grid;gap:26px;max-width:540px">
+      <div style="font-size:12px;letter-spacing:.22em;color:#c4a46b;font-weight:500">LOCAL INGREDIENTS</div>
+      <h2 style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(44px,5.4vw,80px);line-height:1"><span style="font-style:italic">Let’s talk about</span> Asin tibuok.</h2>
+      <p style="margin:0;font-size:17px;line-height:1.7;color:#eee8dc">A traditional Boholano sea salt, handmade using natural materials and an age-old process.</p>
+      <p style="margin:0;font-size:15px;line-height:1.75;color:#bfb6aa;text-wrap:pretty">Asin tibuok is made by soaking coconut husks in seawater for about three months, then drying and burning them into ash. The ash is filtered and leached with seawater to produce a brine, which is poured into specially made clay pots and boiled over a wood fire until it hardens into a solid, dinosaur egg-shaped block of salt.</p>
+      <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:26px;color:#c4a46b">Let’s love our local ingredients more.</div>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="Hours band" style="position:relative;min-height:78vh;display:grid;place-items:center;overflow:hidden;background:#0f0d0c">
+  <img data-parallax="0.3" src="images/interior.png" alt="" style="position:absolute;left:0;top:-20%;width:100%;height:140%;object-fit:cover;object-position:center 90%;will-change:transform;opacity:.85">
+  <div style="position:absolute;inset:0;background:rgba(15,13,12,.45)"></div>
+  <div style="position:relative;text-align:center;padding:96px 24px;display:grid;gap:20px;justify-items:center">
+    <div style="font-size:12px;letter-spacing:.22em;color:#c4a46b;font-weight:500">TEMPORARY OPERATING HOURS</div>
+    <div style="font-size:clamp(13px,1.4vw,16px);letter-spacing:.14em">SIMULA NGAYONG ARAW, BUKAS KAMI MULA</div>
+    <div style="font-family:Antonio,sans-serif;font-weight:400;font-size:clamp(60px,11vw,168px);line-height:.95;letter-spacing:.01em">8:00AM – 5:00PM</div>
+    <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(22px,2.4vw,32px);color:#e6dccb">Maraming salamat sa inyong patuloy na suporta.</div>
+  </div>
+</section>
+
+<section id="visit" data-screen-label="Visit" style="background:#1d2a25;padding:clamp(72px,10vw,140px) clamp(20px,4vw,48px) 48px">
+  <div style="max-width:1320px;margin:0 auto;display:grid;gap:clamp(56px,8vw,110px)">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:clamp(40px,6vw,96px)">
+      <div style="display:grid;gap:24px;align-content:start">
+        <div style="font-size:12px;letter-spacing:.22em;color:#c4a46b;font-weight:500">VISIT</div>
+        <h2 style="margin:0;font-family:Antonio,sans-serif;font-weight:300;font-size:clamp(40px,5vw,72px);line-height:1.02">Book now and create unforgettable memories with us.</h2>
+        <div style="display:flex;flex-wrap:wrap;gap:14px;margin-top:8px">
+          <a href="tel:09984966388" style="color:#141d1a;background:#c4a46b;padding:16px 26px;font-size:12px;letter-spacing:.16em;font-weight:600" style-hover="background:#e2c891;color:#141d1a">CALL 0998 496 6388</a>
+          <a href="https://www.google.com/maps/search/?api=1&amp;query=La+Luma+Bibincahan+Sorsogon+City" target="_blank" style="color:#eee8dc;border:1px solid rgba(238,232,220,.6);padding:15px 26px;font-size:12px;letter-spacing:.16em;font-weight:600" style-hover="border-color:#c4a46b;color:#c4a46b">GET DIRECTIONS</a>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:36px 32px;align-content:start">
+        <div style="display:grid;gap:10px;align-content:start"><div style="font-size:11px;letter-spacing:.2em;color:#b9c2bc">ADDRESS</div><div style="font-size:15px;line-height:1.65">Suarez compound, Bibincahan, Sorsogon City, Sorsogon, Philippines, 4700</div></div>
+        <div style="display:grid;gap:10px;align-content:start"><div style="font-size:11px;letter-spacing:.2em;color:#b9c2bc">HOURS</div><div style="font-size:15px;line-height:1.65">8:00 AM – 5:00 PM<br>Rooms by reservation</div></div>
+        <div style="display:grid;gap:10px;align-content:start"><div style="font-size:11px;letter-spacing:.2em;color:#b9c2bc">PHONE</div><div style="font-size:15px;line-height:1.8;display:grid"><a href="tel:09984966388" style="color:#eee8dc">0998 496 6388</a><a href="tel:09984900388" style="color:#eee8dc">0998 490 0388</a><a href="tel:09778301225" style="color:#eee8dc">0977 830 1225</a></div></div>
+        <div style="display:grid;gap:10px;align-content:start"><div style="font-size:11px;letter-spacing:.2em;color:#b9c2bc">FOLLOW</div><div style="font-size:15px;line-height:1.8;display:grid"><a href="https://www.instagram.com/la_luma2025" target="_blank">Instagram · la_luma2025</a><a href="https://www.tiktok.com/@lalumasorsogon" target="_blank">TikTok · @lalumasorsogon</a><a href="https://www.facebook.com/" target="_blank">Facebook · La Luma</a></div></div>
+      </div>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:24px;padding:28px 0;border-top:1px solid rgba(238,232,220,.18);border-bottom:1px solid rgba(238,232,220,.18)">
+      <span style="font-size:12px;letter-spacing:.2em;color:#b9c2bc">ALSO BOOK ON</span>
+      <div style="display:flex;flex-wrap:wrap;gap:clamp(20px,4vw,56px);font-family:Antonio,sans-serif;font-size:26px;letter-spacing:.04em">
+        <a href="https://www.airbnb.com/" target="_blank" style="color:#eee8dc" style-hover="color:#c4a46b">Airbnb</a>
+        <a href="https://www.booking.com/" target="_blank" style="color:#eee8dc" style-hover="color:#c4a46b">Booking.com</a>
+        <a href="https://www.agoda.com/" target="_blank" style="color:#eee8dc" style-hover="color:#c4a46b">Agoda</a>
+      </div>
+    </div>
+    <footer style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:20px">
+      <div style="display:flex;flex-direction:column;line-height:1">
+        <span style="font-family:Antonio,sans-serif;font-size:clamp(56px,10vw,140px);font-weight:300;letter-spacing:.03em;color:#eee8dc">LA LUMA</span>
+        <span style="font-size:12px;letter-spacing:.2em;color:#c4a46b;margin-top:8px">HOTEL AND RESTAURANTS · SORSOGON</span>
+      </div>
+      <span style="font-size:12px;color:#b9c2bc">© 2026 La Luma. English and Filipino spoken.</span>
+    </footer>
+  </div>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;parallaxStrength&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:1,&quot;min&quot;:0,&quot;max&quot;:2,&quot;step&quot;:0.1,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Motion&quot;},&quot;autoplay&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Image switcher&quot;},&quot;autoplaySeconds&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:5,&quot;min&quot;:2,&quot;max&quot;:15,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Image switcher&quot;}}">
+const SLIDES = [
+  { src: 'images/hero-facade.png', pos: '30% center', kicker: 'THE TERRACE', title: 'Arches and garden light', text: 'Tall arched windows, textured walls and a shaded garden terrace set the mood before you walk in.' },
+  { src: 'images/burger.png', pos: 'center', kicker: 'RESTAURANT', title: 'Filipino comfort, La Luma twist', text: 'Dine-In Filipino Comfort With A La Luma Twist. Perfect For Dates, Families, Barkada. Walk-Ins Welcome, Reservations Recommended.' },
+  { src: 'images/la-musica.png', pos: 'center', kicker: 'LA MUSICA', title: 'Classic OPM hits, live', text: 'Evening sets of classic OPM in an intimate room. Book your reservation to save a seat.' },
+  { src: 'images/lamps.png', pos: 'center', kicker: 'LOCAL CRAFT', title: 'Parisukat na mga Tala', text: 'An original old woodcraft by Ronaldo “NAD” Tamang, artisan of Brgy. Paulog, Ligao. Si NAD ay gumagawa ng mga woodwork gaya ng mga religious image, pinto, hamba at iba pa, at para mapakinabangan ang mga scrap, naisipan niya itong gawing lamps.' },
+  { src: 'images/asin-latte.png', pos: 'center 75%', kicker: 'CAFÉ', title: 'Asin tibuok latte', text: 'Made with asin tibuok, a traditional Boholano sea salt handmade using natural materials and an age-old process.' },
+  { src: 'images/asin-chef.png', pos: 'center 30%', kicker: 'THE KITCHEN', title: 'Let’s love our local ingredients more', text: 'Our kitchen works with ingredients and makers from around the region.' }
+];
+
+class Component extends DCLogic {
+  state = { idx: 0, paused: false, scrolled: false, w: typeof window !== 'undefined' ? window.innerWidth : 1200, menuOpen: false };
+
+  componentDidMount() {
+    this.onScroll = () => {
+      if (this.raf) return;
+      this.raf = requestAnimationFrame(() => {
+        this.raf = null;
+        const k = this.props.parallaxStrength ?? 1;
+        const ih = window.innerHeight;
+        document.querySelectorAll('[data-parallax]').forEach(el => {
+          const r = el.parentElement.getBoundingClientRect();
+          if (r.bottom < -200 || r.top > ih + 200) return;
+          const c = r.top + r.height / 2 - ih / 2;
+          el.style.transform = `translate3d(0,${(-c * parseFloat(el.dataset.parallax) * k).toFixed(1)}px,0)`;
+        });
+        const s = window.scrollY > 60;
+        if (s !== this.state.scrolled) this.setState({ scrolled: s });
+      });
+    };
+    this.onResize = () => { this.setState({ w: window.innerWidth }); this.onScroll(); };
+    window.addEventListener('scroll', this.onScroll, { passive: true });
+    window.addEventListener('resize', this.onResize);
+    this.onScroll();
+    this.timer = setInterval(() => {
+      if ((this.props.autoplay ?? true) && !this.state.paused) this.go(this.state.idx + 1);
+    }, (this.props.autoplaySeconds ?? 5) * 1000);
+  }
+  componentDidUpdate() { this.onScroll && this.onScroll(); }
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.onScroll);
+    window.removeEventListener('resize', this.onResize);
+    clearInterval(this.timer);
+  }
+  go(i) { const n = SLIDES.length; this.setState({ idx: ((i % n) + n) % n }); }
+
+  renderVals() {
+    const { idx, scrolled, w, menuOpen } = this.state;
+    const mobile = w < 860;
+    const solid = scrolled || menuOpen;
+    return {
+      navBg: solid ? 'rgba(20,29,26,.94)' : 'transparent',
+      navBlur: solid ? 'blur(10px)' : 'none',
+      navLinksDisplay: mobile ? 'none' : 'flex',
+      menuBtnDisplay: mobile ? 'block' : 'none',
+      menuOpen: mobile && menuOpen,
+      menuLabel: menuOpen ? 'CLOSE' : 'MENU',
+      toggleMenu: () => this.setState(s => ({ menuOpen: !s.menuOpen })),
+      closeMenu: () => this.setState({ menuOpen: false }),
+      slides: SLIDES.map((s, i) => ({
+        ...s,
+        opacity: i === idx ? 1 : 0,
+        scale: i === idx ? 1.06 : 1,
+        thumbOpacity: i === idx ? 1 : 0.45,
+        thumbFilter: i === idx ? 'none' : 'grayscale(.6)',
+        bar: i === idx ? '#c4a46b' : 'rgba(238,232,220,.2)',
+        go: () => this.go(i)
+      })),
+      active: SLIDES[idx],
+      counter: String(idx + 1).padStart(2, '0') + ' / ' + String(SLIDES.length).padStart(2, '0'),
+      progress: ((idx + 1) / SLIDES.length * 100) + '%',
+      prev: () => this.go(idx - 1),
+      next: () => this.go(idx + 1),
+      pause: () => this.setState({ paused: true }),
+      resume: () => this.setState({ paused: false })
+    };
+  }
+}
+</script>
+</body>
+</html>
