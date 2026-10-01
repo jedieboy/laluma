@@ -27,7 +27,8 @@
 
 .brand {
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  gap: 12px;
   line-height: 1;
   color: var(--cream);
 }
@@ -36,11 +37,20 @@
   color: var(--cream);
 }
 
-.brand-name {
-  font-family: Antonio, sans-serif;
-  font-size: 28px;
-  font-weight: 400;
-  letter-spacing: 0.04em;
+.brand-mark {
+  height: 40px;
+  width: auto;
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-wordmark {
+  height: 28px;
+  width: auto;
+  align-self: flex-start;
 }
 
 .brand-tag {

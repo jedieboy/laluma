@@ -13,4 +13,4 @@ npm run build    # production build in dist/la-luma/browser
 - `src/app/site-header/`: fixed nav that turns solid after scrolling, with a MENU panel below 860px
 - `src/app/image-switcher/`: "Inside La Luma" slides with arrows, thumbnails and autoplay that pauses on hover
 - `src/app/app.html`: hero, intro, services, asin tibuok, hours band, visit/footer
-- `public/images/`: photos from the design bundle
+- `public/images/`: photos from the design bundle, plus the logo (`logo.png` full, `logo-mark.png` kite, `logo-wordmark.png` wordmark) on transparent backgrounds
