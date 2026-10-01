@@ -1,0 +1,109 @@
+:root {
+  --ink: #141d1a;
+  --forest: #1d2a25;
+  --cream: #eee8dc;
+  --gold: #c4a46b;
+  --gold-light: #e2c891;
+  --gold-dark: #8a6d3b;
+  --sage: #b9c2bc;
+  --muted: #4e5853;
+  --gutter: clamp(20px, 4vw, 48px);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--ink);
+  color: var(--cream);
+  font-family: Montserrat, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+a {
+  color: var(--gold);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--gold-light);
+}
+
+img {
+  display: block;
+}
+
+/* Shared type and controls used across sections. */
+
+.eyebrow {
+  font-size: 12px;
+  letter-spacing: 0.22em;
+  color: var(--gold);
+  font-weight: 500;
+}
+
+.eyebrow--dark {
+  color: var(--gold-dark);
+  font-weight: 600;
+}
+
+.section-title {
+  margin: 0;
+  font-family: Antonio, sans-serif;
+  font-weight: 300;
+  font-size: clamp(40px, 5vw, 72px);
+  line-height: 1;
+}
+
+.btn {
+  display: inline-block;
+  padding: 16px 26px;
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  font-weight: 600;
+}
+
+.btn--light {
+  color: var(--ink);
+  background: var(--cream);
+}
+
+.btn--light:hover {
+  background: var(--gold);
+  color: var(--ink);
+}
+
+.btn--gold {
+  color: var(--ink);
+  background: var(--gold);
+}
+
+.btn--gold:hover {
+  background: var(--gold-light);
+  color: var(--ink);
+}
+
+.btn--outline {
+  color: var(--cream);
+  border: 1px solid rgba(238, 232, 220, 0.6);
+  padding: 15px 26px;
+}
+
+.btn--outline:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}

@@ -1,0 +1,165 @@
+<app-site-header />
+
+<main>
+  <section id="top" class="hero">
+    <img
+      [appParallax]="0.35"
+      class="hero-img"
+      src="images/hero-facade.png"
+      alt="La Luma arched façade and garden terrace"
+    />
+    <div class="hero-shade hero-shade-v"></div>
+    <div class="hero-shade hero-shade-h"></div>
+    <div [appParallax]="-0.12" class="hero-content">
+      <div class="container hero-inner">
+        <div class="eyebrow">SORSOGON CITY · BOUTIQUE HOTEL, RESTAURANT AND EVENTS</div>
+        <h1 class="hero-title">Some places you visit. Some places you feel.</h1>
+        <div class="btn-row">
+          <a href="#inside" class="btn btn--light">STEP INSIDE</a>
+          <a [href]="phone.href" class="btn btn--outline">RESERVE A TABLE</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="intro">
+    <div class="container intro-grid">
+      <h2 class="intro-title">Designed for meaningful gatherings.</h2>
+      <div class="intro-body">
+        <p class="intro-lead">La Luma Sorsogon City premier Boutique hotel, Restaurant and Events.</p>
+        <p class="intro-text">
+          Rooms for couples and families, Filipino comfort food with a La Luma twist, signature
+          cocktails, and spaces for weddings, prenups and private celebrations.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="inside" class="inside">
+    <app-image-switcher class="container" />
+  </section>
+
+  <section id="services" class="services">
+    <div class="container services-wrap">
+      <div class="heading">
+        <div class="eyebrow eyebrow--dark">SERVICES</div>
+        <h2 class="section-title">Stay, dine, celebrate</h2>
+      </div>
+      <div class="services-grid">
+        @for (col of services; track col.group) {
+          <div class="service-col">
+            <div class="service-group">{{ col.group }}</div>
+            @for (s of col.items; track s.name) {
+              <div class="service">
+                <h4>{{ s.name }}</h4>
+                <p>{{ s.text }}</p>
+              </div>
+            }
+          </div>
+        }
+      </div>
+    </div>
+  </section>
+
+  <section id="asin" class="asin">
+    <div class="container asin-grid">
+      <div class="asin-media">
+        <div class="asin-main">
+          <img [appParallax]="0.12" src="images/asin-latte.png" alt="Iced latte beside a block of asin tibuok" />
+        </div>
+        <div [appParallax]="-0.18" class="asin-pot">
+          <img src="images/asin-pot.png" alt="Clay pot of asin tibuok" />
+        </div>
+      </div>
+      <div class="asin-body">
+        <div class="eyebrow">LOCAL INGREDIENTS</div>
+        <h2 class="asin-title"><span class="italic">Let’s talk about</span> Asin tibuok.</h2>
+        <p class="asin-lead">
+          A traditional Boholano sea salt, handmade using natural materials and an age-old process.
+        </p>
+        <p class="asin-text">
+          Asin tibuok is made by soaking coconut husks in seawater for about three months, then drying
+          and burning them into ash. The ash is filtered and leached with seawater to produce a brine,
+          which is poured into specially made clay pots and boiled over a wood fire until it hardens
+          into a solid, dinosaur egg-shaped block of salt.
+        </p>
+        <div class="asin-quote">Let’s love our local ingredients more.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="hours">
+    <img [appParallax]="0.3" class="hours-img" src="images/interior.png" alt="" />
+    <div class="hours-shade"></div>
+    <div class="hours-content">
+      <div class="eyebrow">TEMPORARY OPERATING HOURS</div>
+      <div class="hours-sub">SIMULA NGAYONG ARAW, BUKAS KAMI MULA</div>
+      <div class="hours-time">8:00AM – 5:00PM</div>
+      <div class="hours-thanks">Maraming salamat sa inyong patuloy na suporta.</div>
+    </div>
+  </section>
+
+  <section id="visit" class="visit">
+    <div class="container visit-wrap">
+      <div class="visit-grid">
+        <div class="visit-intro">
+          <div class="eyebrow">VISIT</div>
+          <h2 class="section-title visit-title">Book now and create unforgettable memories with us.</h2>
+          <div class="btn-row visit-btns">
+            <a [href]="phone.href" class="btn btn--gold">CALL {{ phone.label }}</a>
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=La+Luma+Bibincahan+Sorsogon+City"
+              target="_blank"
+              rel="noopener"
+              class="btn btn--outline"
+              >GET DIRECTIONS</a
+            >
+          </div>
+        </div>
+        <div class="info-grid">
+          <div class="info">
+            <div class="info-label">ADDRESS</div>
+            <div class="info-value">Suarez compound, Bibincahan, Sorsogon City, Sorsogon, Philippines, 4700</div>
+          </div>
+          <div class="info">
+            <div class="info-label">HOURS</div>
+            <div class="info-value">8:00 AM – 5:00 PM<br />Rooms by reservation</div>
+          </div>
+          <div class="info">
+            <div class="info-label">PHONE</div>
+            <div class="info-value info-list">
+              @for (p of phones; track p.href) {
+                <a [href]="p.href" class="light-link">{{ p.label }}</a>
+              }
+            </div>
+          </div>
+          <div class="info">
+            <div class="info-label">FOLLOW</div>
+            <div class="info-value info-list">
+              @for (s of socials; track s.href) {
+                <a [href]="s.href" target="_blank" rel="noopener">{{ s.label }}</a>
+              }
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="book-on">
+        <span class="book-on-label">ALSO BOOK ON</span>
+        <div class="book-on-links">
+          @for (b of bookingSites; track b.href) {
+            <a [href]="b.href" target="_blank" rel="noopener" class="light-link hover-gold">{{ b.label }}</a>
+          }
+        </div>
+      </div>
+
+      <footer class="footer">
+        <div class="footer-brand">
+          <span class="footer-name">LA LUMA</span>
+          <span class="footer-tag">HOTEL AND RESTAURANTS · SORSOGON</span>
+        </div>
+        <span class="footer-copy">© 2026 La Luma. English and Filipino spoken.</span>
+      </footer>
+    </div>
+  </section>
+</main>

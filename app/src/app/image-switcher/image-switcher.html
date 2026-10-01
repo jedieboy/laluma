@@ -1,0 +1,47 @@
+<div class="head">
+  <div class="heading">
+    <div class="eyebrow">INSIDE LA LUMA</div>
+    <h2 class="section-title">Corners worth lingering in</h2>
+  </div>
+  <div class="controls">
+    <span class="counter" aria-live="polite">{{ counter() }}</span>
+    <button type="button" class="round-btn" aria-label="Previous image" (click)="prev()">←</button>
+    <button type="button" class="round-btn" aria-label="Next image" (click)="next()">→</button>
+  </div>
+</div>
+<div class="body" (mouseenter)="setPaused(true)" (mouseleave)="setPaused(false)">
+  <div class="stage">
+    @for (s of slides; track s.src; let i = $index) {
+      <img
+        [src]="s.src"
+        [alt]="s.title"
+        [style.object-position]="s.pos"
+        [class.active]="i === idx()"
+        [attr.aria-hidden]="i !== idx()"
+      />
+    }
+    <div class="progress"><div class="progress-bar" [style.width]="progress()"></div></div>
+  </div>
+  <div class="side">
+    <div class="caption">
+      <div class="kicker">{{ active().kicker }}</div>
+      <h3 class="title">{{ active().title }}</h3>
+      <p class="text">{{ active().text }}</p>
+    </div>
+    <div class="thumbs">
+      @for (s of slides; track s.src; let i = $index) {
+        <button
+          type="button"
+          class="thumb"
+          [class.active]="i === idx()"
+          [attr.aria-label]="s.title"
+          [attr.aria-current]="i === idx()"
+          (click)="go(i)"
+        >
+          <img [src]="s.src" alt="" [style.object-position]="s.pos" />
+          <span class="thumb-bar"></span>
+        </button>
+      }
+    </div>
+  </div>
+</div>
