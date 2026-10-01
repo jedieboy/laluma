@@ -1,6 +1,6 @@
 # La Luma website (Angular)
 
-One-page site for La Luma, Sorsogon City. Implements the Claude Design handoff in `../project/La Luma.dc.html`.
+One-page site for La Luma, Sorsogon City. Built from the La Luma Claude Design handoff. Deployed on Netlify (see `netlify.toml`).
 
 ```bash
 npm install
